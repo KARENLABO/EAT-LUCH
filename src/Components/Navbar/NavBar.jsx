@@ -15,11 +15,11 @@ function NavBar() {
     const isMobile = () => window.innerWidth <= 768 ? true : false;
 
     return (
-        <div className="navbar">
+        <nav className="navbar">
             <img className='closeOrBackIcon' src={icon} alt='icon'></img>
             <h2 className='TextNavLuchTime'>Lunch Tyme</h2>
             <img className='navbarMapsIcon' alt='iconMaps' src={MapsIcon}></img>
-        </div>
+        </nav>
     )
 }
 

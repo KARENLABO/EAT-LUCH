@@ -4,7 +4,7 @@ import CardRestaurant from './CardRestaurant/CardRestaurant'
 import './CardsRestaurants.css'
 
 function CardsRestaurants() {
-    const [restaurants, SetRestaurants] = useState([])
+    const [restaurants, SetRestaurants] = useState([]);
 
     useEffect(() => {
         getInfo()
@@ -19,6 +19,7 @@ function CardsRestaurants() {
         }
     }
 
+    console.log(restaurants)
 
     return (
         <div className='ContainerCardsRestaurant'>

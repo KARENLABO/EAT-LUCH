@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './Components/Navbar/NavBar';
 import Restaurants from './Components/restaurants/CardsRestaurants/CardsRestaurants'
 import './App.css';
+import RestaurantDetail from './Components/restaurants/MapsRestaurants/MapsRestaurants'
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
   return (
     <div>
       <NavBar />
-      {component}
+      <RestaurantDetail />
+      {/* {component} */}
     </div>
   );
 }

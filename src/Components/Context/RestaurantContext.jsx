@@ -1,10 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react'
-import AllRestaurants from '../restaurants/CardsRestaurants/CardsRestaurants'
-import Map from '../restaurants/MapsRestaurants/MapsRestaurants'
-
+import React, { createContext, useState } from 'react'
 //initializing create context Hook 
 export const UserContext = createContext();
-
 export const UserContextProvider = ({ children }) => {
     const [restaurants, SetRestaurants] = useState([]);
     const [restaurantDetail, SetRestaurantDetail] = useState(
@@ -35,29 +31,23 @@ export const UserContextProvider = ({ children }) => {
             }
         })
 
-    const [component, setComponent] = useState(<AllRestaurants />);
     const [isMobile, setIsmobile] = useState(false);
-    const [isOnClickActivated, setActivateOnclick] = useState(false);;
-
-    const Controller = () => (isMobile === true) && (isOnClickActivated === true) ? setComponent(<Map />) : setComponent(<AllRestaurants />)
-
-
-
+    const [isOnClickActivated, setActivateOnclick] = useState(false)
+    const [restaurantSelected, setRestaurantSelected] = useState();
 
     return (
         <UserContext.Provider
             value={{
                 restaurants,
                 SetRestaurants,
-                component,
-                setComponent,
                 isMobile,
                 setIsmobile,
                 isOnClickActivated,
                 setActivateOnclick,
                 restaurantDetail,
                 SetRestaurantDetail,
-                Controller,
+                restaurantSelected,
+                setRestaurantSelected
             }}>{children}
         </UserContext.Provider>
     );

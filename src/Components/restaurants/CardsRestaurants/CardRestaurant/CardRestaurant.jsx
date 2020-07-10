@@ -1,33 +1,38 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import '../CardRestaurant/CardRestaurant.css'
 import gradiantImg from '../../../../assets/Cuts/cellGradientBackground@3x.png'
 import { UserContext } from '../../../Context/RestaurantContext'
+import Mapa from '../../MapsRestaurants/MapsRestaurants'
+import MobileOnly from '../../../MobileOnly'
 
 
 
 function CardRestaurant({ inforestaurant }) {
 
-    const { setIsmobile, SetRestaurantDetail, component, Controller, setComponent, setActivateOnclick } = useContext(UserContext);
+    const { restaurantSelected, setRestaurantSelected } = useContext(UserContext);
 
-    function detailsRestaurant() {
-        setIsmobile(() => window.innerWidth <= 768 ? true : false);
-        setActivateOnclick(true);
-        SetRestaurantDetail(inforestaurant);
-        setComponent();
-        Controller()
-        console.log(component);
+    function detailsRestaurant(inforestaurant) {
+        setRestaurantSelected(inforestaurant);
     }
 
-    return (
+    const mostrarMapa = restaurantSelected && inforestaurant.name === restaurantSelected.name
 
-        <div onClick={() => detailsRestaurant()} className="card text-white">
-            <img src={inforestaurant.backgroundImageURL} className="card-img" alt="..." />
-            <img src={gradiantImg} className='ssa' alt='ss' />
-            <div className="card-img-overlay">
-                <h5 className="card-title">{inforestaurant.name}</h5>
-                <p className="card-text">{inforestaurant.category}</p>
+    return (
+        <>
+            {mostrarMapa && (
+                <MobileOnly>
+                    <Mapa location={inforestaurant.location} />
+                </MobileOnly>
+            )}
+            <div onClick={() => detailsRestaurant(inforestaurant)} className="card text-white">
+                <img src={inforestaurant.backgroundImageURL} className="card-img" alt="..." />
+                <img src={gradiantImg} className='ssa' alt='ss' />
+                <div className="card-img-overlay">
+                    <h5 className="card-title">{inforestaurant.name}</h5>
+                    <p className="card-text">{inforestaurant.category}</p>
+                </div>
             </div>
-        </div>
+        </>
 
     )
 }

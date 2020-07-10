@@ -4,7 +4,7 @@ import credentials from './Credentials'
 
 const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.41&key=${credentials.mapsKey}`;
 
-const RestaurantDetail = () => {
+const MapsRestaurants = () => {
     return (
         <div className='conttainerMaprestaurant'>
             <Map googleMapURL={mapURL}
@@ -17,4 +17,4 @@ const RestaurantDetail = () => {
     );
 }
 
-export default RestaurantDetail;
+export default MapsRestaurants;

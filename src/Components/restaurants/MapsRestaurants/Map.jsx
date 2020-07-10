@@ -9,11 +9,11 @@ import './MapsRestaurants.css'
 
 
 const Map = (props) => {
-    const { restaurantDetail } = useContext(UserContext);
+    const { restaurantSelected } = useContext(UserContext);
 
     // location of restaurant
-    const latitud = restaurantDetail.location.lat;
-    const longitud = restaurantDetail.location.lng;
+    const latitud = restaurantSelected.location.lat;
+    const longitud = restaurantSelected.location.lng;
 
     return (
         <div>
@@ -23,22 +23,22 @@ const Map = (props) => {
             />
 
             <div className='containerNameRestaurantMap'>
-                <h5> {restaurantDetail.name}</h5>
-                <p>{restaurantDetail.category}</p>
+                <h5> {restaurantSelected.name}</h5>
+                <p>{restaurantSelected.category}</p>
             </div>
 
             <div>
                 <h5>
-                    {restaurantDetail.location.address}
+                    {restaurantSelected.location.address}
                 </h5>
                 <h6>
-                    {restaurantDetail.location.crossStreet}
+                    {restaurantSelected.location.crossStreet}
                 </h6>
                 <p>
-                    {restaurantDetail.contact.formattedPhone}
+                    {restaurantSelected.contact.formattedPhone}
                 </p>
                 <p>
-                    {'@twitter' + restaurantDetail.contact.twitter}
+                    {'@twitter' + restaurantSelected.contact.twitter}
                 </p>
             </div>
         </div>

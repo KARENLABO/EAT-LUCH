@@ -6,19 +6,10 @@ import Allrestaurants from '../restaurants/CardsRestaurants/CardsRestaurants'
 
 
 function ContainerController() {
-    const {
-        isMobile,
-        isOnClickActivated } = useContext(UserContext);
-
-    console.log(isMobile);
-    console.log(isOnClickActivated);
-
 
     return (
         <div>
-
             <Allrestaurants />
-
         </div>
     )
 }

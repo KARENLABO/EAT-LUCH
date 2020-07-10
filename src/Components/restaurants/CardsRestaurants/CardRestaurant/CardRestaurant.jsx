@@ -21,7 +21,8 @@ function CardRestaurant({ inforestaurant }) {
         <>
             {mostrarMapa && (
                 <MobileOnly>
-                    <Mapa location={inforestaurant.location} />
+                    <Mapa location={inforestaurant} />
+
                 </MobileOnly>
             )}
             <div onClick={() => detailsRestaurant(inforestaurant)} className="card text-white">

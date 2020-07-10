@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Map from './'
 
 const isWindowMobile = () => window.innerWidth <= 768;
 

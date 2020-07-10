@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import NavBar from './Components/Navbar/NavBar';
-import Restaurants from './Components/restaurants/CardsRestaurants/CardsRestaurants'
+import ContainerController from './Components/ContainerController/ContainerController'
+import { UserContextProvider } from "./Components/Context/RestaurantContext";
 import './App.css';
-import { UserContextProvider } from "../src/Components/RestaurantContext/RestaurantContext";
-import RestaurantDetail from './Components/restaurants/MapsRestaurants/MapsRestaurants'
 
 
 
 function App() {
 
-  useEffect(() => {
-    isMobile() ? setComponent(<Restaurants />) : setComponent(<RestaurantDetail hola={'hola'} />)
-  }, [])
-
-  const [component, setComponent] = useState(<Restaurants />)
-  return (
-    <UserContextProvider>
-      <div>
-        <NavBar />
-        {component}
-      </div>
-    </UserContextProvider>
-  );
+    return (
+        <UserContextProvider>
+            <NavBar />
+            <ContainerController />
+        </UserContextProvider>
+    );
 }
 
-const isMobile = () => window.innerWidth <= 768 ? true : false;
+
 
 export default App;

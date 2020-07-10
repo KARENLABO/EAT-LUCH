@@ -1,38 +1,49 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import {
     GoogleMap,
     withScriptjs,
     withGoogleMap
 } from 'react-google-maps'
+import { UserContext } from '../../Context/RestaurantContext'
 import './MapsRestaurants.css'
 
 
-const Map = (props, { infoRestaurant }) => {
-    console.log(infoRestaurant)
+const Map = (props) => {
+    const { restaurantDetail } = useContext(UserContext);
+
+    // location of restaurant
+    const latitud = restaurantDetail.location.lat;
+    const longitud = restaurantDetail.location.lng;
+
     return (
         <div>
             <GoogleMap
                 defaultZoom={20}
-                defaultCenter={{ lat: 32.950787, lng: -96.821118 }}
+                defaultCenter={{ lat: latitud, lng: longitud }}
             />
+
             <div className='containerNameRestaurantMap'>
-                <h5> Restaurant Name </h5>
-                <p>category Type</p>
+                <h5> {restaurantDetail.name}</h5>
+                <p>{restaurantDetail.category}</p>
             </div>
 
             <div>
-                <h5>direccion</h5>
+                <h5>
+                    {restaurantDetail.location.address}
+                </h5>
+                <h6>
+                    {restaurantDetail.location.crossStreet}
+                </h6>
                 <p>
-                    telefono
+                    {restaurantDetail.contact.formattedPhone}
                 </p>
                 <p>
-                    twitter
+                    {'@twitter' + restaurantDetail.contact.twitter}
                 </p>
             </div>
         </div>
     );
 };
-
 
 export default withScriptjs(
     withGoogleMap(

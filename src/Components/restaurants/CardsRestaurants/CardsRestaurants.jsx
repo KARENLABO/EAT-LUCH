@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import getRestaurants from '../FetchRestaurantes/GetRestaurants'
 import CardRestaurant from './CardRestaurant/CardRestaurant'
-import { UserContext } from '../../RestaurantContext/RestaurantContext'
+import { UserContext } from '../../Context/RestaurantContext'
 import './CardsRestaurants.css'
 
 function CardsRestaurants() {

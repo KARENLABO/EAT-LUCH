@@ -7,7 +7,8 @@ import {
 import './MapsRestaurants.css'
 
 
-const Map = (props) => {
+const Map = (props, { infoRestaurant }) => {
+    console.log(infoRestaurant)
     return (
         <div>
             <GoogleMap

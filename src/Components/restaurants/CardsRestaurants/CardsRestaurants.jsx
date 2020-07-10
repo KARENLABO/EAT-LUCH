@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import getRestaurants from '../FetchRestaurantes/GetRestaurants'
 import CardRestaurant from './CardRestaurant/CardRestaurant'
+import { UserContext } from '../../RestaurantContext/RestaurantContext'
 import './CardsRestaurants.css'
 
 function CardsRestaurants() {
-    const [restaurants, SetRestaurants] = useState([]);
+
+    const { restaurants, SetRestaurants } = useContext(UserContext);
 
     useEffect(() => {
         getInfo()
@@ -18,8 +20,6 @@ function CardsRestaurants() {
             alert('intente de nuevo')
         }
     }
-
-    console.log(restaurants)
 
     return (
         <div className='ContainerCardsRestaurant'>

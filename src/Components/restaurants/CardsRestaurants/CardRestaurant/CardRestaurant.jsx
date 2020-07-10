@@ -3,10 +3,14 @@ import '../CardRestaurant/CardRestaurant.css'
 import gradiantImg from '../../../../assets/Cuts/cellGradientBackground@3x.png'
 
 
+
+
 function CardRestaurant({ inforestaurant }) {
 
     function hola() {
-        console.log('hola')
+        console.log('entre')
+
+
     }
 
     return (

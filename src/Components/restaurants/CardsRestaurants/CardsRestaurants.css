@@ -1,0 +1,15 @@
+
+.ContainerCardsRestaurant{
+    display: grid;
+    grid-gap:0;
+    grid-template-columns: repeat(2 ,1fr);
+    margin-bottom: 0;
+}
+
+
+
+@media (max-width:799px){
+    .ContainerCardsRestaurant{
+        grid-template-columns: repeat(1 ,1fr);
+    }
+}

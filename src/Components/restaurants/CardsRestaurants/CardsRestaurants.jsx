@@ -21,17 +21,12 @@ function CardsRestaurants() {
 
 
     return (
-        <div >
-
-            <div className='cards'>
-                {restaurants.map(restaurant => (
-
-                    <div key={restaurant.name}>
-                        <CardRestaurant inforestaurant={restaurant} />
-                    </div>
-
-                ))}
-            </div>
+        <div className='ContainerCardsRestaurant'>
+            {restaurants.map(restaurant => (
+                <div className='ContainerEveryCard' key={restaurant.name}>
+                    <CardRestaurant inforestaurant={restaurant} />
+                </div>
+            ))}
         </div>
     )
 }

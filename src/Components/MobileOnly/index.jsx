@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import Map from './'
 
 const isWindowMobile = () => window.innerWidth <= 768;
 
 function MobileOnly({ children }) {
+
+    console.log(children);
     // Iniciamos el state con el valor actual de window.innerWidth
     const [isMobile, setIsMobile] = useState(isWindowMobile);
 

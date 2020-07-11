@@ -1,0 +1,20 @@
+import React, { useContext } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { UserContext } from './RestaurantContext';
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    const { restaurantSelected } = useContext(UserContext);
+
+    return (
+        <Route
+            {...rest}
+            render={(routeProps) => (
+                !!restaurantSelected
+                    ? (<Component {...routeProps} />)
+                    : (<Redirect to="/" />)
+            )}
+        />
+    );
+};
+
+export default PrivateRoute;

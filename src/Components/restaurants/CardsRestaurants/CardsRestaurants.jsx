@@ -6,6 +6,7 @@ import Map from '../MapsRestaurants/MapsRestaurants'
 import CloseIcon from '../../../assets/Cuts/ic_close@3x.png'
 import './CardsRestaurants.css'
 
+
 function CardsRestaurants() {
 
     const { restaurants, SetRestaurants, restaurantSelected, setRestaurantSelected } = useContext(UserContext);
@@ -33,7 +34,7 @@ function CardsRestaurants() {
                     </div>
                 ))}
                 {
-                    restaurantSelected && (
+                    restaurantSelected && window.innerWidth > 729 && (
                         <div className='MapRestaurantsDesktop'>
                             <div className='miniNavMap'>
                                 <img onClick={() => setRestaurantSelected('')} className='closeIconImage' src={CloseIcon} alt='closeIcon'></img>

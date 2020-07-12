@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import MapsIcon from '../../assets/Cuts/icon_map@3x.png'
 import BackIcon from '../../assets/Cuts/ic_webBack@3x.png'
-import CloseIcon from '../../assets/Cuts/ic_close@3x.png'
-import { useHistory } from 'react-router-dom'
+import { UserContext } from '../Context/RestaurantContext'
+import { Link } from 'react-router-dom'
 
 import './Navbar.css'
 
 
 function NavBar() {
-    const [icon, SetIcon] = useState();
-    const history = useHistory()
-
-    useEffect(() => {
-        isMobile() ? SetIcon(BackIcon) : SetIcon(CloseIcon)
-    }, [])
-
-    const closeModal = () => {
-
-    }
+    const { restaurantSelected, setRestaurantSelected } = useContext(UserContext);
 
 
-    const isMobile = () => window.innerWidth <= 768 ? true : false;
 
 
     return (
         <nav className="navbar">
-            <img onClick={closeModal()} className='closeOrBackIcon' src={icon} alt='icon'></img>
+            {
+                restaurantSelected && window.innerWidth <= 768 && (
+                    <Link className='OptionsToAuth' to='/'>
+                        <img className='closeOrBackIcon'
+                            src={BackIcon}
+                            alt='icon'
+                            onClick={() => setRestaurantSelected()}
+                        >
+                        </img>
+                    </Link>
+                )}
             <h2 className='TextNavLuchTime'>Lunch Tyme</h2>
             <img className='navbarMapsIcon' alt='iconMaps' src={MapsIcon}></img>
 

@@ -1,11 +1,18 @@
 
 .ContainerCardsRestaurant{
     display: grid;
-    grid-gap:0;
-    grid-template-columns: repeat(2 ,1fr);
-    margin-bottom: 0;
+    grid-template-columns: repeat(3 ,1fr);
+    grid-auto-columns: 1fr;
+    
 }
 
+
+.MapRestaurantsDesktop{
+    position: relative;
+    grid-row: 1/8;
+    grid-column: 3/4;
+    
+}
 
 
 @media (max-width:799px){

@@ -6,7 +6,7 @@ import Mapa from '../../MapsRestaurants/MapsRestaurants'
 import MobileOnly from '../../../MobileOnly'
 import { useHistory } from 'react-router-dom'
 
-
+const isWindowMobile = () => window.innerWidth <= 768;
 
 function CardRestaurant({ inforestaurant }) {
     const history = useHistory()
@@ -14,8 +14,9 @@ function CardRestaurant({ inforestaurant }) {
 
     function detailsRestaurant(inforestaurant) {
         setRestaurantSelected(inforestaurant);
-        history.push('/RestaurantDetail')
-
+        if (isWindowMobile()) {
+            history.push('/RestaurantDetail')
+        }
     }
 
     // const mostrarMapa = restaurantSelected && inforestaurant.name === restaurantSelected.name

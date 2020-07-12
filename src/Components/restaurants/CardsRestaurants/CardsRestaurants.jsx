@@ -2,11 +2,12 @@ import React, { useEffect, useContext } from 'react';
 import getRestaurants from '../FetchRestaurantes/GetRestaurants'
 import CardRestaurant from './CardRestaurant/CardRestaurant'
 import { UserContext } from '../../Context/RestaurantContext'
+import Map from '../MapsRestaurants/MapsRestaurants'
 import './CardsRestaurants.css'
 
 function CardsRestaurants() {
 
-    const { restaurants, SetRestaurants } = useContext(UserContext);
+    const { restaurants, SetRestaurants, restaurantSelected } = useContext(UserContext);
 
     useEffect(() => {
         getInfo()
@@ -24,12 +25,17 @@ function CardsRestaurants() {
     return (
         <>
             <div className='ContainerCardsRestaurant'>
+
                 {restaurants.map(restaurant => (
                     <div className='ContainerEveryCard' key={restaurant.name}>
                         <CardRestaurant inforestaurant={restaurant} />
                     </div>
                 ))}
+
             </div>
+            {
+                restaurantSelected && (<div className='MapRestaurantsDesktop'> <Map /></div>)
+            }
         </>
     )
 }

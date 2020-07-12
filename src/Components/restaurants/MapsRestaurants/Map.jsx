@@ -6,11 +6,14 @@ import {
 } from 'react-google-maps'
 import { UserContext } from '../../Context/RestaurantContext'
 import './MapsRestaurants.css'
+
 import {
     PHONE_NOT_AVAILABLE,
     NOT_AVAILABLE,
     ADDRESS_NOT_AVAILABLE,
-    CROSS_STREET_NOT_AVAILABLE
+    CROSS_STREET_NOT_AVAILABLE,
+    STATE_NOT_AVAILABLE,
+    CODE_NOT_AVAILABLE
 } from '../../../utils/constants'
 
 
@@ -26,36 +29,41 @@ const Map = (props) => {
     const longitud = restaurantSelected?.location?.lng;
     const adress = validInfo(restaurantSelected?.location?.address, ADDRESS_NOT_AVAILABLE);
     const crossStreet = validInfo(restaurantSelected?.location?.crossStreet, CROSS_STREET_NOT_AVAILABLE);
+    const state = validInfo(restaurantSelected?.location?.state, STATE_NOT_AVAILABLE);
+    const PostalCode = validInfo(restaurantSelected?.location?.postalCode, CODE_NOT_AVAILABLE);
     let formattedPhone = validInfo(restaurantSelected?.contact?.formattedPhone, PHONE_NOT_AVAILABLE);
     const twitter = '@twitter ' + validInfo(restaurantSelected?.contact?.twitter, NOT_AVAILABLE);
 
     return (
-        <div>
+        <>
             <GoogleMap
-                defaultZoom={20}
+                defaultZoom={15}
                 defaultCenter={{ lat: latitud, lng: longitud }}
             />
 
             <div className='containerNameRestaurantMap'>
-                <h5> {restaurantSelected.name}</h5>
-                <p>{restaurantSelected.category}</p>
-            </div>
-
-            <div>
-                <h5>
-                    {adress}
+                <h5 className='textNameRestaurant'>
+                    {restaurantSelected.name}
                 </h5>
-                <h6>
-                    {crossStreet}
-                </h6>
-                <p>
+                <p className='textCategoryRestaurant'>
+                    {restaurantSelected.category}
+                </p>
+            </div>
+            <div className='containerInfoRestaurantMap'>
+                <p className='textAdressRestaurant'>
+                    {adress}
+                </p>
+                <p className='textCrossStreetRestaurant'>
+                    {`${crossStreet}, ${state} ${PostalCode}`}
+                </p>
+                <p className='textPhoneRestaurant'>
                     {formattedPhone}
                 </p>
-                <p>
+                <p className='texTwitterRestaurant'>
                     {twitter}
                 </p>
             </div>
-        </div>
+        </>
     );
 };
 

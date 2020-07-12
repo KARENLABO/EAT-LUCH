@@ -1,4 +1,51 @@
 .containerNameRestaurantMap{
+    height: 60px;
     background-color: #34B379;
     color: #ffffff;
+}
+
+.containerNameRestaurantMap p, h5{
+    margin-left: 12px;
+}
+
+.containerInfoRestaurantMap{
+    background-color: #ffffff;
+    font-family: Avenir Next Regular;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.containerInfoRestaurantMap p{
+    margin-left: 12px; 
+    color: #2a2a2a;
+
+}
+.textNameRestaurant{
+    font-family: Avenir Next Demi Bold;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.textCategoryRestaurant{
+    font-family: Avenir Next Regular;
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+.textAdressRestaurant{
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.textCrossStreetRestaurant{
+    margin-top: 0;
+}
+
+.textPhoneRestaurant{
+    margin-top: 26px; 
+}
+
+.texTwitterRestaurant{
+    margin-top: 26px; 
 }

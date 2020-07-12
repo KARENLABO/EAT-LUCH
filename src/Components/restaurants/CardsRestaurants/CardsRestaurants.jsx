@@ -3,11 +3,12 @@ import getRestaurants from '../FetchRestaurantes/GetRestaurants'
 import CardRestaurant from './CardRestaurant/CardRestaurant'
 import { UserContext } from '../../Context/RestaurantContext'
 import Map from '../MapsRestaurants/MapsRestaurants'
+import CloseIcon from '../../../assets/Cuts/ic_close@3x.png'
 import './CardsRestaurants.css'
 
 function CardsRestaurants() {
 
-    const { restaurants, SetRestaurants, restaurantSelected } = useContext(UserContext);
+    const { restaurants, SetRestaurants, restaurantSelected, setRestaurantSelected } = useContext(UserContext);
 
     useEffect(() => {
         getInfo()
@@ -31,11 +32,17 @@ function CardsRestaurants() {
                         <CardRestaurant inforestaurant={restaurant} />
                     </div>
                 ))}
-
+                {
+                    restaurantSelected && (
+                        <div className='MapRestaurantsDesktop'>
+                            <div className='miniNavMap'>
+                                <img onClick={() => setRestaurantSelected('')} className='closeIconImage' src={CloseIcon} alt='closeIcon'></img>
+                            </div>
+                            <Map />
+                        </div>)
+                }
             </div>
-            {
-                restaurantSelected && (<div className='MapRestaurantsDesktop'> <Map /></div>)
-            }
+
         </>
     )
 }

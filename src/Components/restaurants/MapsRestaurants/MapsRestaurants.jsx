@@ -8,7 +8,7 @@ const MapsRestaurants = () => {
     return (
         <div className='conttainerMaprestaurant'>
             <Map googleMapURL={mapURL}
-                containerElement={<div style={{ height: '400px' }} />}
+                containerElement={<div style={{ height: '180px' }} />}
                 mapElement={<div style={{ height: '100%' }} />}
                 loadingElement={<p>Loading...</p>}
 

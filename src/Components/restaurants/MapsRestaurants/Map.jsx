@@ -30,13 +30,15 @@ const Map = (props) => {
 
     // here we saved the variables that we are going to use on the google maps API
     const latitud = restaurantSelected?.location?.lat;
+    console.log(latitud)
     const longitud = restaurantSelected?.location?.lng;
+    console.log(longitud)
     const adress = validInfo(restaurantSelected?.location?.address, ADDRESS_NOT_AVAILABLE);
     const crossStreet = validInfo(restaurantSelected?.location?.crossStreet, CROSS_STREET_NOT_AVAILABLE);
     const state = validInfo(restaurantSelected?.location?.state, STATE_NOT_AVAILABLE);
     const PostalCode = validInfo(restaurantSelected?.location?.postalCode, CODE_NOT_AVAILABLE);
     let formattedPhone = validInfo(restaurantSelected?.contact?.formattedPhone, PHONE_NOT_AVAILABLE);
-    const twitter = '@twitter ' + validInfo(restaurantSelected?.contact?.twitter, NOT_AVAILABLE);
+    const twitter = '@twitter' + validInfo(restaurantSelected?.contact?.twitter, NOT_AVAILABLE);
 
     //Creating template of Maps 
     return (

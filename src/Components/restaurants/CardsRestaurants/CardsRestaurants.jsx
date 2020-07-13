@@ -4,7 +4,10 @@ import CardRestaurant from './CardRestaurant/CardRestaurant'
 import { UserContext } from '../../Context/RestaurantContext'
 import Map from '../MapsRestaurants/MapsRestaurants'
 import CloseIcon from '../../../assets/Cuts/ic_close@3x.png'
+import RestaurantsJson from '../FetchRestaurantes/RestaurantsJson'
 import './CardsRestaurants.css'
+
+
 
 // this function bring the info of API , and maped the info to create the cards to every restaurant
 function CardsRestaurants() {
@@ -15,14 +18,24 @@ function CardsRestaurants() {
     useEffect(() => {
         getInfo()
     }, [])
-    // get info brings the info from the Api
+    // get info brings the info from the Api, but when is on production link brakes for that
+    //reason i make the valitation 
+
     const getInfo = async () => {
-        try {
-            const info = await getRestaurants();
-            // after the API return with the info it is saved on a state of context
-            SetRestaurants(info.restaurants)
-        } catch (err) {
-            alert('intente de nuevo')
+        //if la url is from production
+        if (window.location.href.indexOf("localhost") !== -1) {
+            try {
+                const info = await getRestaurants();
+                // after the API return with the info it is saved on a state of context
+                SetRestaurants(info.restaurants)
+            } catch (err) {
+                alert('intente de nuevo')
+            }
+            //  else add  json
+
+        } else {
+            const jsonRestaurants = RestaurantsJson()
+            SetRestaurants(jsonRestaurants.restaurants)
         }
     }
 

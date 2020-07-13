@@ -12,11 +12,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
+  "homepage": "https://lunchtyme-944ae.web.app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

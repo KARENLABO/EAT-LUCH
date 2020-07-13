@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
+import { UserContext } from '../../Context/RestaurantContext'
+import './MapsRestaurants.css'
+
+// importing the components from the api of google.
 import {
     GoogleMap,
     withScriptjs,
     withGoogleMap
 } from 'react-google-maps'
-import { UserContext } from '../../Context/RestaurantContext'
-import './MapsRestaurants.css'
 
+// importing the variables to use if the valitation of info don't found the property.
 import {
     PHONE_NOT_AVAILABLE,
     NOT_AVAILABLE,
@@ -19,12 +22,13 @@ import {
 
 const Map = (props) => {
     const { restaurantSelected } = useContext(UserContext);
-    // location of restaurant
+
+    // this function validates if the api don't found an specific property return a string
     const validInfo = (infoToCheck, keyword) => {
         return (infoToCheck === null || infoToCheck === undefined ? keyword : infoToCheck);
     }
-    console.log('this is restaurants selected')
-    console.log(restaurantSelected)
+
+    // here we saved the variables that we are going to use on the google maps API
     const latitud = restaurantSelected?.location?.lat;
     const longitud = restaurantSelected?.location?.lng;
     const adress = validInfo(restaurantSelected?.location?.address, ADDRESS_NOT_AVAILABLE);
@@ -34,6 +38,7 @@ const Map = (props) => {
     let formattedPhone = validInfo(restaurantSelected?.contact?.formattedPhone, PHONE_NOT_AVAILABLE);
     const twitter = '@twitter ' + validInfo(restaurantSelected?.contact?.twitter, NOT_AVAILABLE);
 
+    //Creating template of Maps 
     return (
         <>
             <GoogleMap

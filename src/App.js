@@ -4,13 +4,11 @@ import AllRestaurantsView from './Components/Views/AllRestaurantsView/AllRestaur
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserContextProvider } from "./Components/Context/RestaurantContext";
 import PrivateRoute from './Components/Context/PrivateRoute';
-
 import './App.css';
 
 
-
+// on this function we created the router to acces to the components.
 function App() {
-
     return (
         <Router>
             <UserContextProvider>
@@ -20,7 +18,6 @@ function App() {
                 </Switch>
             </UserContextProvider>
         </Router >
-
     )
 }
 

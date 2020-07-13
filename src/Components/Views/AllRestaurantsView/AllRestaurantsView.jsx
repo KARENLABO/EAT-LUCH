@@ -1,12 +1,10 @@
 import React from 'react';
 import Nav from '../../Navbar/NavBar'
+import Allrestaurants from '../../restaurants/CardsRestaurants/CardsRestaurants'
 import './AllRestaurantsView.css'
 
-import Allrestaurants from '../../restaurants/CardsRestaurants/CardsRestaurants'
-
-
+// This is the component that shows all restaurants
 function AllrestaurantsView() {
-
     return (
         <>
             <Nav />

@@ -1,3 +1,5 @@
+// in this file we saved all the variables tha could be used in diferent documents
+
 export const PHONE_NOT_AVAILABLE = 'PHONE NOT AVAILABLE';
 export const TWITTER_NOT_AVAILABLE = 'TWITTER NOT AVAILABLE';
 export const ADDRESS_NOT_AVAILABLE = 'ADDRESS NOT AVAILABLE';

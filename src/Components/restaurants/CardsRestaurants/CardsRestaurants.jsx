@@ -35,15 +35,18 @@ function CardsRestaurants() {
                 ))}
                 {
                     restaurantSelected && window.innerWidth > 729 && (
-                        <div className='MapRestaurantsDesktop'>
-                            <div className='miniNavMap'>
-                                <img onClick={() => setRestaurantSelected('')} className='closeIconImage' src={CloseIcon} alt='closeIcon'></img>
+                        <div className='container1'>
+                            <div className='MapRestaurantsDesktop'>
+                                <div className='miniNavMap'>
+                                    <img onClick={() => setRestaurantSelected('')} className='closeIconImage' src={CloseIcon} alt='closeIcon' />
+                                    <Map />
+                                </div>
                             </div>
-                            <Map />
-                        </div>)
+                        </div>
+
+                    )
                 }
             </div>
-
         </>
     )
 }

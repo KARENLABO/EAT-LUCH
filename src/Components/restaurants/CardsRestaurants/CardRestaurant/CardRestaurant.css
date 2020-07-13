@@ -11,14 +11,9 @@
 .card-img{
     position: relative;
     display: block;
- 
 }
 
-.Mapa{
-    position: absolute;
-    background-color: blue;
-    height: 100vh;
-}
+
 
 .ssa{
     position: absolute;
@@ -28,34 +23,34 @@
 }
 
 .card-img-overlay{
-    padding: 0;
+    margin-left: 12px;
     height: 100%;
 }
+
 
 .card-title{
     font-size: 22px;
     color:#FFFFFF;
-    font-family: avenir Next Demi Bold;
-    z-index: 99;
+    font-family: Avenir Next Demi Bold;
+    margin-left: 0;
     background-image: none;
 }
 
 .card-text{
-    font-family: avenir Next Regular;
+    font-family: Avenir Next Regular;
     color:#FFFFFF;
     font-size: 18px;
-    z-index: 99;
     background-image: none;
 }
 
-@media (max-width:760px){
-    .card-title{
-        font-size: 16px;
-    }
-    .card-text{
-        font-size: 12px;   
-    }
+@media (max-width:500px){
     .card-img{
         height: 180px;
+    }
+}
+
+@media (min-width:501px){
+    .card-img{
+        height: auto;
     }
 }

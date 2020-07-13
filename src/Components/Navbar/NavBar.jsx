@@ -14,7 +14,7 @@ function NavBar() {
 
 
     return (
-        <nav className="navbar">
+        <nav className="navbar fixed-top">
             {
                 restaurantSelected && window.innerWidth <= 768 && (
                     <Link className='OptionsToAuth' to='/'>

@@ -7,14 +7,14 @@
     font-size: 17px;
     padding-top: 20px;
     font-weight: bold;
-    padding-bottom: 1em;
-  
 }
 .navbar{
     display: grid;
-    grid-template-columns: .5 fr repeat(2, 1fr);
+    grid-template-columns:  .5fr 1.5fr .5fr;
     gap: 0;
+    height: 80px;
 }
+
 
 .TextNavLuchTime{
     grid-column: 2/3;
@@ -25,22 +25,22 @@
 
 .navbarMapsIcon{
     grid-column: 3/4;
-    min-width: 20px;
-    max-width: 60px;
+    justify-self: end;
+    max-width: 45px;
 }
 
-.navbarBackIcon{
-    min-width: 20px;
-    max-width: 20px;
-}
 
 .closeOrBackIcon{
-    min-width: 12px;
-    max-width: 20px;
+    max-width: 17px;
     padding-bottom: .2em;
 }
 
 
-
+@media (max-width: 760px){
+    .navbarMapsIcon{
+       width: 45px;
+    }
+    
+}
 
 

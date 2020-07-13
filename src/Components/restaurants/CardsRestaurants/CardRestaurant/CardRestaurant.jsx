@@ -19,7 +19,7 @@ function CardRestaurant({ inforestaurant }) {
         }
     }
 
-    // const mostrarMapa = restaurantSelected && inforestaurant.name === restaurantSelected.name
+
 
     return (
         <>
